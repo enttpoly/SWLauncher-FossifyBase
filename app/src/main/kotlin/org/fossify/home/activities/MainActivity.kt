@@ -43,7 +43,6 @@ import androidx.core.view.isVisible
 import androidx.core.view.iterator
 import androidx.viewbinding.ViewBinding
 import kotlinx.collections.immutable.toImmutableList
-import org.fossify.commons.extensions.appLaunched
 import org.fossify.commons.extensions.beVisible
 import org.fossify.commons.extensions.getContrastColor
 import org.fossify.commons.extensions.getPopupMenuTheme
@@ -61,7 +60,6 @@ import org.fossify.commons.helpers.DARK_GREY
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isOreoMr1Plus
 import org.fossify.commons.helpers.isQPlus
-import com.sw.launcher.BuildConfig
 import com.sw.launcher.R
 import com.sw.launcher.databinding.ActivityMainBinding
 import com.sw.launcher.databinding.AllAppsFragmentBinding
@@ -139,7 +137,6 @@ class MainActivity : SimpleActivity(), FlingListener {
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        appLaunched(BuildConfig.APPLICATION_ID)
         setupEdgeToEdge(
             padTopSystem = listOf(binding.allAppsFragment.root, binding.widgetsFragment.root),
             padBottomImeAndSystem = listOf(
