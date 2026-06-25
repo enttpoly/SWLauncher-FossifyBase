@@ -1,0 +1,33 @@
+name: Build SW Launcher Fossify Base APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Fossify Base Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Preparar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Permissão no Gradle
+        run: chmod +x ./gradlew
+
+      - name: Gerar APK fossDebug
+        run: ./gradlew --no-daemon :app:assembleFossDebug
+
+      - name: Enviar APK para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: swlauncher-fossify-base-apk
+          path: app/build/outputs/apk/foss/debug/*.apk
