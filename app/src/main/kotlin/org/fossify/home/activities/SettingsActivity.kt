@@ -273,30 +273,26 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun launchAbout() {
-        val licenses = 0L
-        val faqItems = ArrayList<FAQItem>()
-
-        if (!resources.getBoolean(org.fossify.commons.R.bool.hide_google_relations)) {
-            faqItems.add(
-                FAQItem(
-                    title = org.fossify.commons.R.string.faq_2_title_commons,
-                    text = org.fossify.commons.R.string.faq_2_text_commons
-                )
-            )
-            faqItems.add(
-                FAQItem(
-                    title = org.fossify.commons.R.string.faq_6_title_commons,
-                    text = org.fossify.commons.R.string.faq_6_text_commons
-                )
-            )
+        val version = try {
+            packageManager.getPackageInfo(packageName, 0).versionName ?: ""
+        } catch (_: Exception) {
+            ""
         }
 
-        startAboutActivity(
-            appNameId = R.string.app_name,
-            licenseMask = licenses,
-            versionName = BuildConfig.VERSION_NAME,
-            faqItems = faqItems,
-            showFAQBeforeMail = true
-        )
+        val message = buildString {
+            append("SW Launcher")
+            if (version.isNotEmpty()) {
+                append("\nVersão ")
+                append(version)
+            }
+            append("\n\nLauncher Android personalizada com identidade SW.")
+            append("\nBase open source adaptada e modificada para o projeto SW Launcher.")
+        }
+
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Sobre a SW Launcher")
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 }
