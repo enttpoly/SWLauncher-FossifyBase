@@ -1,10 +1,10 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import org.fossify.home.models.AppLauncher
+import com.sw.launcher.models.AppLauncher
 
 @Dao
 interface AppLaunchersDao {

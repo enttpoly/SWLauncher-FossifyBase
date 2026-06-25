@@ -1,4 +1,4 @@
-package org.fossify.home.activities
+package com.sw.launcher.activities
 
 import android.annotation.SuppressLint
 import android.app.admin.DevicePolicyManager
@@ -15,15 +15,15 @@ import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.FAQItem
 import org.fossify.commons.models.RadioItem
-import org.fossify.home.BuildConfig
-import org.fossify.home.R
-import org.fossify.home.databinding.ActivitySettingsBinding
-import org.fossify.home.extensions.config
-import org.fossify.home.helpers.MAX_COLUMN_COUNT
-import org.fossify.home.helpers.MAX_ROW_COUNT
-import org.fossify.home.helpers.MIN_COLUMN_COUNT
-import org.fossify.home.helpers.MIN_ROW_COUNT
-import org.fossify.home.receivers.LockDeviceAdminReceiver
+import com.sw.launcher.BuildConfig
+import com.sw.launcher.R
+import com.sw.launcher.databinding.ActivitySettingsBinding
+import com.sw.launcher.extensions.config
+import com.sw.launcher.helpers.MAX_COLUMN_COUNT
+import com.sw.launcher.helpers.MAX_ROW_COUNT
+import com.sw.launcher.helpers.MIN_COLUMN_COUNT
+import com.sw.launcher.helpers.MIN_ROW_COUNT
+import com.sw.launcher.receivers.LockDeviceAdminReceiver
 import java.util.Locale
 import kotlin.system.exitProcess
 

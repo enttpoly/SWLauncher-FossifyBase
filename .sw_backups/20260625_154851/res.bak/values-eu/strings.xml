@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Abiarazlea</string>
+    <string name="touch_hold_widget">Luze sakatu trepeta eta arrastatu hasierako pantailara</string>
+    <string name="uninstall">Desinstalatu</string>
+    <string name="hide_icon">Ezkutatu ikonoa</string>
+    <string name="hidden_icons">Ezkutuko ikonoak</string>
+    <string name="app_drawer_settings">Aplikazioen tiradera</string>
+    <string name="close_app_drawer_on_app_open">Itxi aplikazioen tiradera aplikazio bat irekitzean</string>
+    <string name="home_screen_settings">Hasierako pantaila</string>
+    <string name="widget_too_big">Trepeta handiegia da duzun hasierako pantailaren tamainarako</string>
+    <string name="launcher_settings">Abiarazlearen ezarpenak</string>
+    <string name="app_info">Aplikazioaren informazioa</string>
+    <string name="add_hidden_icons">Gehitu ezkutuko ikonoak</string>
+    <string name="manage_hidden_icons">Kudeatu ezkutuko ikonoak</string>
+    <string name="hidden_icons_placeholder">Aplikazio batzuk ezin dira desinstalatu sistemaren murrizketak direla eta, baina gutxienez haien ikonoak ezkutatu ditzakezu ez ikusteko.</string>
+    <string name="double_tap_to_lock">Sakatu bi aldiz pantaila blokeatzeko</string>
+    <string name="lock_device_admin_hint">Bi aldiz sakatuta pantaila blokeatzeko, kudeatzaile baimena eman behar duzu. Kontuan izan baimen hau kendu arte ezingo duzula aplikazioa telefonotik kendu.</string>
+    <string name="lock_device_admin_warning">Kudeatzaile baimena desaktibatzean, pantaila blokeatzeko bi aldiz ikutzea desaktibatu egingo da.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Erakutsi teklatua automatikoki tiraderan</string>
+</resources>

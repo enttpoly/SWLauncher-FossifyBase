@@ -1,4 +1,4 @@
-package org.fossify.home.models
+package com.sw.launcher.models
 
 open class WidgetsListItemsHolder(val widgets: ArrayList<AppWidget>) : WidgetsListItem() {
     override fun getHashToCompare() = widgets.sumOf { it.getHashToCompare() }

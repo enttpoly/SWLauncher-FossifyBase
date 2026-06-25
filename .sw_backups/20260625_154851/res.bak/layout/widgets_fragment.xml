@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fossify.home.fragments.WidgetsFragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widgets_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <org.fossify.commons.views.MySearchMenu
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:applyWindowInsets="false" />
+
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/widgets_fastscroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_bar"
+        app:fastScrollEnabled="false">
+
+        <org.fossify.commons.views.MyRecyclerView
+            android:id="@+id/widgets_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+</org.fossify.home.fragments.WidgetsFragment>

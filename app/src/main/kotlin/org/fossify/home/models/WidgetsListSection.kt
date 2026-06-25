@@ -1,4 +1,4 @@
-package org.fossify.home.models
+package com.sw.launcher.models
 
 import android.graphics.drawable.Drawable
 

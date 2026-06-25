@@ -1,4 +1,4 @@
-package org.fossify.home.extensions
+package com.sw.launcher.extensions
 
 import android.content.pm.ShortcutInfo
 

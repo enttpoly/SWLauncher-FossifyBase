@@ -1,4 +1,4 @@
-package org.fossify.home.fragments
+package com.sw.launcher.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,16 +14,16 @@ import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.hideKeyboard
 import org.fossify.commons.extensions.normalizeString
 import org.fossify.commons.views.MyGridLayoutManager
-import org.fossify.home.activities.MainActivity
-import org.fossify.home.adapters.LaunchersAdapter
-import org.fossify.home.databinding.AllAppsFragmentBinding
-import org.fossify.home.extensions.config
-import org.fossify.home.extensions.launchApp
-import org.fossify.home.extensions.setupDrawerBackground
-import org.fossify.home.helpers.ITEM_TYPE_ICON
-import org.fossify.home.interfaces.AllAppsListener
-import org.fossify.home.models.AppLauncher
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.activities.MainActivity
+import com.sw.launcher.adapters.LaunchersAdapter
+import com.sw.launcher.databinding.AllAppsFragmentBinding
+import com.sw.launcher.extensions.config
+import com.sw.launcher.extensions.launchApp
+import com.sw.launcher.extensions.setupDrawerBackground
+import com.sw.launcher.helpers.ITEM_TYPE_ICON
+import com.sw.launcher.interfaces.AllAppsListener
+import com.sw.launcher.models.AppLauncher
+import com.sw.launcher.models.HomeScreenGridItem
 
 class AllAppsFragment(
     context: Context,

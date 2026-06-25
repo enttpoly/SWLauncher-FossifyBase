@@ -1,7 +1,7 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
 import androidx.room.*
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.models.HomeScreenGridItem
 
 @Dao
 interface HomeScreenGridItemsDao {

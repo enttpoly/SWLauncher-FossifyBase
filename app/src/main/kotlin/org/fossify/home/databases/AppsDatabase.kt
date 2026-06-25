@@ -1,17 +1,17 @@
-package org.fossify.home.databases
+package com.sw.launcher.databases
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import org.fossify.home.helpers.Converters
-import org.fossify.home.interfaces.AppLaunchersDao
-import org.fossify.home.interfaces.HiddenIconsDao
-import org.fossify.home.interfaces.HomeScreenGridItemsDao
-import org.fossify.home.models.AppLauncher
-import org.fossify.home.models.HiddenIcon
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.helpers.Converters
+import com.sw.launcher.interfaces.AppLaunchersDao
+import com.sw.launcher.interfaces.HiddenIconsDao
+import com.sw.launcher.interfaces.HomeScreenGridItemsDao
+import com.sw.launcher.models.AppLauncher
+import com.sw.launcher.models.HiddenIcon
+import com.sw.launcher.models.HomeScreenGridItem
 
 @Database(
     entities = [AppLauncher::class, HomeScreenGridItem::class, HiddenIcon::class],

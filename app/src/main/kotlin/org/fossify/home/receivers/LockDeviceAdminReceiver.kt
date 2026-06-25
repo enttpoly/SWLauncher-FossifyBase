@@ -1,9 +1,9 @@
-package org.fossify.home.receivers
+package com.sw.launcher.receivers
 
 import android.app.admin.DeviceAdminReceiver
 import android.content.Context
 import android.content.Intent
-import org.fossify.home.R
+import com.sw.launcher.R
 
 class LockDeviceAdminReceiver : DeviceAdminReceiver() {
 

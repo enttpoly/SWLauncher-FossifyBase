@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Startprogram</string>
+    <string name="launcher_settings">Inställningar för startprogrammet</string>
+    <string name="app_info">Appinformation</string>
+    <string name="touch_hold_widget">Tryck länge på widgeten och dra den på startskärmen</string>
+    <string name="uninstall">Avinstallera</string>
+    <string name="hide_icon">Dölj ikon</string>
+    <string name="add_hidden_icons">Lägg till dolda ikoner</string>
+    <string name="manage_hidden_icons">Hantera dolda ikoner</string>
+    <string name="hidden_icons">Dolda ikoner</string>
+    <string name="hidden_icons_placeholder">Vissa appar kan inte avinstalleras på grund av systembegränsningar, men du kan åtminstone dölja deras ikoner för att slippa se dem.</string>
+    <string name="app_drawer_settings">Applåda</string>
+    <string name="close_app_drawer_on_app_open">Stäng applådan när en app öppnas</string>
+    <string name="home_screen_settings">Startskärm</string>
+    <string name="widget_too_big">Widgeten är för stor för startskärmens aktuella storlek</string>
+    <string name="lock_device_admin_hint">Om du vill aktivera funktionen dubbeltryck för att låsa skärmen måste du bevilja administratörsbehörighet. Observera att appen inte kan avinstalleras förrän behörigheten har tagits bort.</string>
+    <string name="double_tap_to_lock">Dubbeltryck för att låsa skärmen</string>
+    <string name="lock_device_admin_warning">Om du inaktiverar administratörsbehörigheten inaktiveras funktionen dubbeltryck för att låsa skärmen.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Visa tangentbordet automatiskt i lådan</string>
+</resources>

@@ -103,8 +103,8 @@
     <ID>NestedBlockDepth:MainActivity.kt$MainActivity$override fun onTouchEvent(event: MotionEvent?): Boolean</ID>
     <ID>NestedBlockDepth:MainActivity.kt$MainActivity$private fun findFirstEmptyCell(): Pair&lt;Int, Rect&gt;</ID>
     <ID>NestedBlockDepth:MyAppWidgetResizeFrame.kt$MyAppWidgetResizeFrame$override fun onTouchEvent(event: MotionEvent?): Boolean</ID>
-    <ID>NewLineAtEndOfFile:IconCache.kt$org.fossify.home.helpers.IconCache.kt</ID>
-    <ID>NewLineAtEndOfFile:View.kt$org.fossify.home.extensions.View.kt</ID>
+    <ID>NewLineAtEndOfFile:IconCache.kt$com.sw.launcher.helpers.IconCache.kt</ID>
+    <ID>NewLineAtEndOfFile:View.kt$com.sw.launcher.extensions.View.kt</ID>
     <ID>ReturnCount:HomeScreenGrid.kt$HomeScreenGrid$fun isClickingGridItem(x: Int, y: Int): HomeScreenGridItem?</ID>
     <ID>SwallowedException:Activity.kt$e: Exception</ID>
     <ID>SwallowedException:Context.kt$e: Error</ID>

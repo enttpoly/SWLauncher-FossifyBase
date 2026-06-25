@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_info">دووسمندیا برنومه</string>
+    <string name="uninstall">پاک کردن پۊرنیڌن</string>
+    <string name="app_launcher_name">لانچر</string>
+    <string name="add_hidden_icons">ٱووردن آیکونا بؽڌاری</string>
+    <string name="manage_hidden_icons">دؽوۉداری آیکونا بؽڌاری</string>
+    <string name="hidden_icons">آیکونا بؽڌاری</string>
+    <string name="hide_icon">بؽڌار کردن آیکون</string>
+    <string name="app_drawer_settings">کشار برنومه</string>
+    <string name="close_app_drawer_on_app_open">بستن کشار برنومه یل مجال گۊشیڌن ی برنومه</string>
+    <string name="home_screen_settings">بلگه ٱسلی</string>
+    <string name="widget_too_big">ویجت سی هندا بلگه هیم سکویی قلوه گپ هڌ</string>
+    <string name="double_tap_to_lock">سی چفت کردن بلگه دو کرت بزݩ ریس</string>
+    <string name="launcher_settings">سامووا لانچر</string>
+    <string name="touch_hold_widget">دستته واڌارن ری ویجت وو هونه ری بلگه ٱسلی خوت بکش</string>
+    <string name="auto_show_keyboard_in_app_drawer">نشووݩ داڌن خوتکار تخته کیلیت من کشار</string>
+    <string name="lock_device_admin_warning">قیر فعال کردن دسرسی ٱدمین،</string>
+</resources>

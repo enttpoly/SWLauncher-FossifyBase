@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Peluncur</string>
+    <string name="launcher_settings">Pengaturan Peluncur</string>
+    <string name="app_info">Info aplikasi</string>
+    <string name="touch_hold_widget">Tekan lama pada widget dan seret pada layar beranda Anda</string>
+    <string name="uninstall">Uninstal</string>
+    <string name="hide_icon">Sembunyikan ikon</string>
+    <string name="add_hidden_icons">Tambahkan ikon tersembunyi</string>
+    <string name="manage_hidden_icons">Kelola ikon tersembunyi</string>
+    <string name="hidden_icons">Ikon tersembunyi</string>
+    <string name="hidden_icons_placeholder">Beberapa aplikasi tidak dapat di-uninstal karena keterbatasan sistem, tetapi Anda masih dapat menyembunyikan ikon mereka untuk menyembunyikannya.</string>
+    <string name="close_app_drawer_on_app_open">Tutup laci aplikasi saat membuka aplikasi</string>
+    <string name="app_drawer_settings">Laci aplikasi</string>
+    <string name="widget_too_big">Widget terlalu besar untuk ukuran layar beranda saat ini</string>
+    <string name="home_screen_settings">Layar beranda</string>
+    <string name="double_tap_to_lock">Ketuk dua kali untuk mengunci layar</string>
+    <string name="lock_device_admin_warning">Menonaktifkan izin admin akan menonaktifkan fitur ketuk dua kali untuk mengunci layar.</string>
+    <string name="lock_device_admin_hint">Untuk mengaktifkan fitur ketuk dua kali untuk mengunci layar, Anda perlu memberikan izin admin. Perhatikan bahwa aplikasi tidak dapat dihapus sampai izin ini dicabut.</string>
+</resources>

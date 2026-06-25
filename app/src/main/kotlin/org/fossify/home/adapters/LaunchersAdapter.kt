@@ -1,4 +1,4 @@
-package org.fossify.home.adapters
+package com.sw.launcher.adapters
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
@@ -18,13 +18,13 @@ import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getColoredDrawableWithColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.realScreenSize
-import org.fossify.home.R
-import org.fossify.home.activities.SimpleActivity
-import org.fossify.home.databinding.ItemLauncherLabelBinding
-import org.fossify.home.extensions.animateScale
-import org.fossify.home.extensions.config
-import org.fossify.home.interfaces.AllAppsListener
-import org.fossify.home.models.AppLauncher
+import com.sw.launcher.R
+import com.sw.launcher.activities.SimpleActivity
+import com.sw.launcher.databinding.ItemLauncherLabelBinding
+import com.sw.launcher.extensions.animateScale
+import com.sw.launcher.extensions.config
+import com.sw.launcher.interfaces.AllAppsListener
+import com.sw.launcher.models.AppLauncher
 
 class LaunchersAdapter(
     val activity: SimpleActivity,

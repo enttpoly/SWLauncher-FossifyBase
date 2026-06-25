@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Lainseálaí</string>
+    <string name="launcher_settings">Socruithe Lainseálaí</string>
+    <string name="app_info">Eolas aip</string>
+    <string name="touch_hold_widget">Brúigh fada an ghiuirléid agus tarraing ar do scáileán baile é</string>
+    <string name="uninstall">Díshuiteáil</string>
+    <string name="hidden_icons">Deilbhíní i bhfolach</string>
+    <string name="manage_hidden_icons">Bainistigh deilbhíní i bhfolach</string>
+    <string name="add_hidden_icons">Cuir deilbhíní i bhfolach</string>
+    <string name="hidden_icons_placeholder">Ní féidir roinnt aipeanna a dhíshuiteáil mar gheall ar shrianta córais, ach is féidir leat a gcuid deilbhíní a cheilt ar a laghad ionas nach bhfeicfidh tú iad.</string>
+    <string name="app_drawer_settings">Tarraiceán aip</string>
+    <string name="close_app_drawer_on_app_open">Dún tarraiceán aip nuair a osclaítear aip</string>
+    <string name="home_screen_settings">Scáileán baile</string>
+    <string name="widget_too_big">Tá an ghiuirléid ró-mhór do mhéid an scáileáin baile reatha</string>
+    <string name="hide_icon">Folaigh deilbhín</string>
+    <string name="double_tap_to_lock">Tapáil faoi dhó chun an scáileán a ghlasáil</string>
+    <string name="lock_device_admin_warning">Má dhéantar cead riaracháin a dhíghníomhachtú, díchumasófar an sconna dúbailte chun an ghné scáileáin a ghlasáil.</string>
+    <string name="lock_device_admin_hint">Chun an sconna dúbailte a chumasú chun gné an scáileáin a ghlasáil, ní mór duit cead riaracháin a dheonú. Tabhair faoi deara nach féidir an aip a dhíshuiteáil go dtí go mbaintear an cead seo.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Taispeáin an méarchlár go huathoibríoch sa tarraiceán</string>
+</resources>

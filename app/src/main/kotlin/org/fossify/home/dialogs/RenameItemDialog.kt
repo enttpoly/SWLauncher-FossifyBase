@@ -1,12 +1,12 @@
-package org.fossify.home.dialogs
+package com.sw.launcher.dialogs
 
 import android.app.Activity
 import android.app.AlertDialog
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.ensureBackgroundThread
-import org.fossify.home.databinding.DialogRenameItemBinding
-import org.fossify.home.extensions.homeScreenGridItemsDB
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.databinding.DialogRenameItemBinding
+import com.sw.launcher.extensions.homeScreenGridItemsDB
+import com.sw.launcher.models.HomeScreenGridItem
 
 class RenameItemDialog(val activity: Activity, val item: HomeScreenGridItem, val callback: () -> Unit) {
 

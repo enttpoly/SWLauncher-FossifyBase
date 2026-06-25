@@ -1,4 +1,4 @@
-package org.fossify.home.models
+package com.sw.launcher.models
 
 import android.appwidget.AppWidgetProviderInfo
 import android.content.pm.ActivityInfo
@@ -6,7 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.Point
 import android.graphics.drawable.Drawable
 import androidx.room.*
-import org.fossify.home.helpers.ITEM_TYPE_ICON
+import com.sw.launcher.helpers.ITEM_TYPE_ICON
 
 // grid cells are from 0-5 by default. Icons and shortcuts occupy 1 slot only, widgets can be bigger
 @Entity(tableName = "home_screen_grid_items", indices = [(Index(value = ["id"], unique = true))])

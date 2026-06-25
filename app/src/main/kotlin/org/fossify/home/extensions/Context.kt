@@ -1,4 +1,4 @@
-package org.fossify.home.extensions
+package com.sw.launcher.extensions
 
 import android.app.role.RoleManager
 import android.appwidget.AppWidgetProviderInfo
@@ -14,11 +14,11 @@ import android.util.Size
 import androidx.annotation.RequiresApi
 import org.fossify.commons.helpers.isQPlus
 import org.fossify.commons.helpers.isSPlus
-import org.fossify.home.databases.AppsDatabase
-import org.fossify.home.helpers.Config
-import org.fossify.home.interfaces.AppLaunchersDao
-import org.fossify.home.interfaces.HiddenIconsDao
-import org.fossify.home.interfaces.HomeScreenGridItemsDao
+import com.sw.launcher.databases.AppsDatabase
+import com.sw.launcher.helpers.Config
+import com.sw.launcher.interfaces.AppLaunchersDao
+import com.sw.launcher.interfaces.HiddenIconsDao
+import com.sw.launcher.interfaces.HomeScreenGridItemsDao
 import kotlin.math.ceil
 import kotlin.math.max
 

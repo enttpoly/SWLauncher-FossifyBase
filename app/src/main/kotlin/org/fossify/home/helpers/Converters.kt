@@ -1,4 +1,4 @@
-package org.fossify.home.helpers
+package com.sw.launcher.helpers
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

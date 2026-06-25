@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Launcher</string>
+    <string name="app_launcher_name">SW Launcher</string>
     <string name="launcher_settings">Launcher-indstillinger</string>
     <string name="app_info">Appinfo</string>
     <string name="touch_hold_widget">Tryk længe på widgetten, og træk den hen over din startskærm</string>

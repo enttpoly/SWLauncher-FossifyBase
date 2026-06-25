@@ -1,4 +1,4 @@
-package org.fossify.home.extensions
+package com.sw.launcher.extensions
 
 import android.app.Activity
 import android.content.ComponentName
@@ -28,14 +28,14 @@ import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.showErrorToast
 import org.fossify.commons.helpers.isQPlus
 import org.fossify.commons.helpers.isSPlus
-import org.fossify.home.R
-import org.fossify.home.activities.SettingsActivity
-import org.fossify.home.helpers.ITEM_TYPE_FOLDER
-import org.fossify.home.helpers.ITEM_TYPE_ICON
-import org.fossify.home.helpers.ITEM_TYPE_WIDGET
-import org.fossify.home.helpers.UNINSTALL_APP_REQUEST_CODE
-import org.fossify.home.interfaces.ItemMenuListener
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.R
+import com.sw.launcher.activities.SettingsActivity
+import com.sw.launcher.helpers.ITEM_TYPE_FOLDER
+import com.sw.launcher.helpers.ITEM_TYPE_ICON
+import com.sw.launcher.helpers.ITEM_TYPE_WIDGET
+import com.sw.launcher.helpers.UNINSTALL_APP_REQUEST_CODE
+import com.sw.launcher.interfaces.ItemMenuListener
+import com.sw.launcher.models.HomeScreenGridItem
 
 fun Activity.launchApp(packageName: String, activityName: String) {
     try {

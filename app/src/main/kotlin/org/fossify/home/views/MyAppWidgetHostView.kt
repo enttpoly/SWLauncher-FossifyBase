@@ -1,4 +1,4 @@
-package org.fossify.home.views
+package com.sw.launcher.views
 
 import android.appwidget.AppWidgetHostView
 import android.content.Context
@@ -6,7 +6,7 @@ import android.graphics.PointF
 import android.os.Handler
 import android.view.MotionEvent
 import android.view.ViewConfiguration
-import org.fossify.home.R
+import com.sw.launcher.R
 import kotlin.math.abs
 
 class MyAppWidgetHostView(context: Context) : AppWidgetHostView(context) {

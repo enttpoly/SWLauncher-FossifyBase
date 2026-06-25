@@ -1,4 +1,4 @@
-package org.fossify.home.activities
+package com.sw.launcher.activities
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,12 +10,12 @@ import org.fossify.commons.helpers.NavigationIcon
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.interfaces.RefreshRecyclerViewListener
 import org.fossify.commons.views.MyGridLayoutManager
-import org.fossify.home.adapters.HiddenIconsAdapter
-import org.fossify.home.databinding.ActivityHiddenIconsBinding
-import org.fossify.home.extensions.config
-import org.fossify.home.extensions.getDrawableForPackageName
-import org.fossify.home.extensions.hiddenIconsDB
-import org.fossify.home.models.HiddenIcon
+import com.sw.launcher.adapters.HiddenIconsAdapter
+import com.sw.launcher.databinding.ActivityHiddenIconsBinding
+import com.sw.launcher.extensions.config
+import com.sw.launcher.extensions.getDrawableForPackageName
+import com.sw.launcher.extensions.hiddenIconsDB
+import com.sw.launcher.models.HiddenIcon
 
 class HiddenIconsActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private val binding by viewBinding(ActivityHiddenIconsBinding::inflate)

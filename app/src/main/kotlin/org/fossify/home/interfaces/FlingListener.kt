@@ -1,4 +1,4 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
 interface FlingListener {
     fun onFlingUp()

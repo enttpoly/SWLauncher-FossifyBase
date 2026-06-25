@@ -1,4 +1,4 @@
-package org.fossify.home.adapters
+package com.sw.launcher.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +7,17 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.fossify.commons.extensions.getProperTextColor
-import org.fossify.home.R
-import org.fossify.home.activities.SimpleActivity
-import org.fossify.home.databinding.ItemWidgetListItemsHolderBinding
-import org.fossify.home.databinding.ItemWidgetListSectionBinding
-import org.fossify.home.databinding.ItemWidgetPreviewBinding
-import org.fossify.home.helpers.WIDGET_LIST_ITEMS_HOLDER
-import org.fossify.home.helpers.WIDGET_LIST_SECTION
-import org.fossify.home.interfaces.WidgetsFragmentListener
-import org.fossify.home.models.WidgetsListItem
-import org.fossify.home.models.WidgetsListItemsHolder
-import org.fossify.home.models.WidgetsListSection
+import com.sw.launcher.R
+import com.sw.launcher.activities.SimpleActivity
+import com.sw.launcher.databinding.ItemWidgetListItemsHolderBinding
+import com.sw.launcher.databinding.ItemWidgetListSectionBinding
+import com.sw.launcher.databinding.ItemWidgetPreviewBinding
+import com.sw.launcher.helpers.WIDGET_LIST_ITEMS_HOLDER
+import com.sw.launcher.helpers.WIDGET_LIST_SECTION
+import com.sw.launcher.interfaces.WidgetsFragmentListener
+import com.sw.launcher.models.WidgetsListItem
+import com.sw.launcher.models.WidgetsListItemsHolder
+import com.sw.launcher.models.WidgetsListSection
 
 class WidgetsAdapter(
     val activity: SimpleActivity,

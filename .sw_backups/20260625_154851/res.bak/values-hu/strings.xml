@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Indító</string>
+    <string name="launcher_settings">Indító beállításai</string>
+    <string name="app_info">Alkalmazásinformációk</string>
+    <string name="touch_hold_widget">Nyomja meg hosszan a modult és húzza a kezdőképernyőre</string>
+    <string name="uninstall">Eltávolítás</string>
+    <string name="hide_icon">Ikon elrejtése</string>
+    <string name="add_hidden_icons">Rejtett ikonok hozzáadása</string>
+    <string name="manage_hidden_icons">Rejtett ikonok kezelése</string>
+    <string name="hidden_icons">Rejtett ikonok</string>
+    <string name="hidden_icons_placeholder">Egyes alkalmazások rendszerkorlátozások miatt nem távolíthatók el, de legalább elrejtheti az ikonjaikat, hogy ne lássa őket.</string>
+    <string name="app_drawer_settings">Alkalmazásfiók</string>
+    <string name="close_app_drawer_on_app_open">Alkalmazásfiók bezárása egy alkalmazás megnyitásakor</string>
+    <string name="widget_too_big">A modul túl nagy az aktuális kezdőképernyő méretéhez</string>
+    <string name="home_screen_settings">Kezdőképernyő</string>
+    <string name="lock_device_admin_warning">Az rendszergazdai engedély kikapcsolása letiltja a képernyő lezárásához szükséges dupla koppintás funkciót.</string>
+    <string name="double_tap_to_lock">Dupla koppintás a képernyő zárolásához</string>
+    <string name="lock_device_admin_hint">A képernyőzárolás dupla koppintás funkciójának engedélyezéséhez rendszergazdai hozzáférést kell adnia. Vegye figyelembe, hogy az alkalmazás nem távolítható el, amíg ez az engedély nem kerül eltávolításra.</string>
+</resources>

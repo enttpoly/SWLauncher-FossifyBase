@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Lanzador</string>
+    <string name="launcher_settings">Configuración del lanzador</string>
+    <string name="app_info">Información de la aplicación</string>
+    <string name="touch_hold_widget">Mantenga presionado el widget y arrástrelo a su pantalla de inicio</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="hide_icon">Ocultar icono</string>
+    <string name="add_hidden_icons">Agregar iconos ocultos</string>
+    <string name="manage_hidden_icons">Gestionar los iconos ocultos</string>
+    <string name="hidden_icons">Iconos ocultos</string>
+    <string name="hidden_icons_placeholder">Algunas aplicaciones no se pueden desinstalar debido a las restricciones del sistema, pero al menos puedes ocultar sus iconos para evitar verlas.</string>
+    <string name="app_drawer_settings">Cajón de aplicaciones</string>
+    <string name="close_app_drawer_on_app_open">Cerrar el cajón de aplicaciones al abrir una aplicación</string>
+    <string name="widget_too_big">El widget es demasiado grande para el tamaño actual de la pantalla de inicio</string>
+    <string name="home_screen_settings">Pantalla de inicio</string>
+    <string name="double_tap_to_lock">Toca dos veces para bloquear la pantalla</string>
+    <string name="lock_device_admin_warning">Al desactivar el permiso de administrador se desactivará la función de doble toque para bloquear la pantalla.</string>
+    <string name="lock_device_admin_hint">Para activar la función de doble toque para bloquear la pantalla, debes conceder un permiso de administrador. Tenga en cuenta que la aplicación no se puede desinstalar hasta que se elimine este permiso.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Mostrar automáticamente el teclado en el cajón de aplicaciones</string>
+</resources>

@@ -1,10 +1,10 @@
-package org.fossify.home.fragments
+package com.sw.launcher.fragments
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import androidx.viewbinding.ViewBinding
-import org.fossify.home.activities.MainActivity
+import com.sw.launcher.activities.MainActivity
 
 abstract class MyFragment<BINDING : ViewBinding>(
     context: Context,

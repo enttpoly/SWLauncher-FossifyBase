@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Başlatıcı</string>
+    <string name="launcher_settings">Başlatıcı Ayarları</string>
+    <string name="app_info">Uygulama bilgisi</string>
+    <string name="touch_hold_widget">Widget\'a uzun basın ve ana ekranınıza sürükleyin</string>
+    <string name="uninstall">Kaldır</string>
+    <string name="hide_icon">Simgeyi gizle</string>
+    <string name="add_hidden_icons">Gizli simgeler ekle</string>
+    <string name="manage_hidden_icons">Gizli simgeleri yönet</string>
+    <string name="hidden_icons">Gizli simgeler</string>
+    <string name="hidden_icons_placeholder">Bazı uygulamalar sistem kısıtlamaları nedeniyle kaldırılamaz, ancak bu uygulamaları görmemek için simgelerini gizleyebilirsiniz.</string>
+    <string name="app_drawer_settings">Uygulama çekmecesi</string>
+    <string name="close_app_drawer_on_app_open">Bir uygulama açıldığında uygulama çekmecesini kapat</string>
+    <string name="home_screen_settings">Ana ekran</string>
+    <string name="widget_too_big">Widget, şu anki ana ekran boyutu için çok büyük</string>
+    <string name="double_tap_to_lock">Ekranı kilitlemek için çift dokunun</string>
+    <string name="lock_device_admin_warning">Yönetici iznini devre dışı bırakmak, ekranı kilitlemek için çift dokunma özelliğini devre dışı bırakır.</string>
+    <string name="lock_device_admin_hint">Ekranı kilitlemek için çift dokunma özelliğini etkinleştirmek için yönetici izni vermeniz gerekir. Bu izin kaldırılmadığı sürece uygulamanın kaldırılamayacağını unutmayın.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Uygulama çekmecesinde otomatik olarak klavyeyi göster</string>
+</resources>

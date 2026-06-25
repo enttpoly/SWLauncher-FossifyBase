@@ -1,7 +1,7 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
 import androidx.room.*
-import org.fossify.home.models.HiddenIcon
+import com.sw.launcher.models.HiddenIcon
 
 @Dao
 interface HiddenIconsDao {

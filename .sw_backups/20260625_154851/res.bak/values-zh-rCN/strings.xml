@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">启动器</string>
+    <string name="launcher_settings">启动器设置</string>
+    <string name="app_info">应用信息</string>
+    <string name="touch_hold_widget">长按微件并将其拖动到主屏幕</string>
+    <string name="uninstall">卸载</string>
+    <string name="hide_icon">隐藏图标</string>
+    <string name="add_hidden_icons">添加隐藏的图标</string>
+    <string name="manage_hidden_icons">管理隐藏的图标</string>
+    <string name="hidden_icons">隐藏的图标</string>
+    <string name="hidden_icons_placeholder">某些应用因系统限制而无法卸载， 但你至少可以隐藏它们的图标避免看见它们。</string>
+    <string name="app_drawer_settings">应用抽屉</string>
+    <string name="close_app_drawer_on_app_open">打开抽屉内应用时关闭抽屉</string>
+    <string name="home_screen_settings">主屏幕</string>
+    <string name="widget_too_big">微件对当前屏幕尺寸而言太大了</string>
+    <string name="double_tap_to_lock">双击锁屏</string>
+    <string name="lock_device_admin_warning">停用管理员权限将禁用双击锁屏功能。</string>
+    <string name="lock_device_admin_hint">要启用双击锁屏功能，您需要授予管理员权限。请注意，在移除此权限之前无法卸载该应用。</string>
+    <string name="auto_show_keyboard_in_app_drawer">在抽屉中自动显示键盘</string>
+</resources>

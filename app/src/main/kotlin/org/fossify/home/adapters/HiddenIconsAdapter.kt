@@ -1,4 +1,4 @@
-package org.fossify.home.adapters
+package com.sw.launcher.adapters
 
 import android.view.Menu
 import android.view.View
@@ -14,10 +14,10 @@ import org.fossify.commons.extensions.realScreenSize
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.interfaces.RefreshRecyclerViewListener
 import org.fossify.commons.views.MyRecyclerView
-import org.fossify.home.R
-import org.fossify.home.databinding.ItemHiddenIconBinding
-import org.fossify.home.extensions.hiddenIconsDB
-import org.fossify.home.models.HiddenIcon
+import com.sw.launcher.R
+import com.sw.launcher.databinding.ItemHiddenIconBinding
+import com.sw.launcher.extensions.hiddenIconsDB
+import com.sw.launcher.models.HiddenIcon
 
 class HiddenIconsAdapter(
     activity: BaseSimpleActivity,

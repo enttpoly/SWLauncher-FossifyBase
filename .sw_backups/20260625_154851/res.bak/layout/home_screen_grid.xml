@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fossify.home.views.HomeScreenGrid xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_screen_grid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Drawing area with Z translation so it is drawn over widgets -->
+    <org.fossify.home.views.HomeScreenGridDrawingArea
+        android:id="@+id/drawing_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="1dp" />
+
+    <org.fossify.home.views.MyAppWidgetResizeFrame
+        android:id="@+id/resize_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</org.fossify.home.views.HomeScreenGrid>

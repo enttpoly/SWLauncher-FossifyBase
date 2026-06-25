@@ -1,4 +1,4 @@
-package org.fossify.home.views
+package com.sw.launcher.views
 
 import android.appwidget.AppWidgetHost
 import android.appwidget.AppWidgetHostView

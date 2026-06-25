@@ -1,4 +1,4 @@
-package org.fossify.home.views
+package com.sw.launcher.views
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -53,18 +53,18 @@ import org.fossify.commons.extensions.performHapticFeedback
 import org.fossify.commons.helpers.FontHelper
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isSPlus
-import org.fossify.home.R
-import org.fossify.home.activities.MainActivity
-import org.fossify.home.databinding.HomeScreenGridBinding
-import org.fossify.home.extensions.config
-import org.fossify.home.extensions.getDrawableForPackageName
-import org.fossify.home.extensions.homeScreenGridItemsDB
-import org.fossify.home.helpers.ITEM_TYPE_FOLDER
-import org.fossify.home.helpers.ITEM_TYPE_ICON
-import org.fossify.home.helpers.ITEM_TYPE_SHORTCUT
-import org.fossify.home.helpers.ITEM_TYPE_WIDGET
-import org.fossify.home.helpers.WIDGET_HOST_ID
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.R
+import com.sw.launcher.activities.MainActivity
+import com.sw.launcher.databinding.HomeScreenGridBinding
+import com.sw.launcher.extensions.config
+import com.sw.launcher.extensions.getDrawableForPackageName
+import com.sw.launcher.extensions.homeScreenGridItemsDB
+import com.sw.launcher.helpers.ITEM_TYPE_FOLDER
+import com.sw.launcher.helpers.ITEM_TYPE_ICON
+import com.sw.launcher.helpers.ITEM_TYPE_SHORTCUT
+import com.sw.launcher.helpers.ITEM_TYPE_WIDGET
+import com.sw.launcher.helpers.WIDGET_HOST_ID
+import com.sw.launcher.models.HomeScreenGridItem
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.floor

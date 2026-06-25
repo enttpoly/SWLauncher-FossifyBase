@@ -1,6 +1,6 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
-import org.fossify.home.models.AppWidget
+import com.sw.launcher.models.AppWidget
 
 interface WidgetsFragmentListener {
     fun onWidgetLongPressed(appWidget: AppWidget)

@@ -1,4 +1,4 @@
-package org.fossify.home.activities
+package com.sw.launcher.activities
 
 import android.content.Intent
 import org.fossify.commons.activities.BaseSplashActivity

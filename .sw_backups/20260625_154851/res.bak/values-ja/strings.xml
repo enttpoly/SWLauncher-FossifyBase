@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">ランチャー</string>
+    <string name="launcher_settings">ランチャー設定</string>
+    <string name="app_info">アプリ情報</string>
+    <string name="touch_hold_widget">ウィジェットを長押しして、ホーム画面にドラッグします</string>
+    <string name="uninstall">アンインストール</string>
+    <string name="hide_icon">アイコンを非表示</string>
+    <string name="add_hidden_icons">非表示のアイコンを追加</string>
+    <string name="manage_hidden_icons">非表示アイコンの管理</string>
+    <string name="hidden_icons">非表示のアイコン</string>
+    <string name="hidden_icons_placeholder">一部のアプリはシステムの制限によりアンインストールできませんが、非表示によって表示されないようにすることはできます。</string>
+    <string name="app_drawer_settings">アプリドローワー</string>
+    <string name="close_app_drawer_on_app_open">アプリを開く際にドローワーを閉じる</string>
+    <string name="home_screen_settings">ホーム画面</string>
+    <string name="widget_too_big">ウィジェットが現在のホーム画面のサイズよりも大きいです</string>
+    <string name="auto_show_keyboard_in_app_drawer">ドロワーを開いた際に自動的にキーボードを表示する</string>
+    <string name="double_tap_to_lock">ダブルタップしてロック画面を表示する</string>
+</resources>

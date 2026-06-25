@@ -1,6 +1,6 @@
-package org.fossify.home.interfaces
+package com.sw.launcher.interfaces
 
-import org.fossify.home.models.AppLauncher
+import com.sw.launcher.models.AppLauncher
 
 interface AllAppsListener {
     fun onAppLauncherLongPressed(x: Float, y: Float, appLauncher: AppLauncher)

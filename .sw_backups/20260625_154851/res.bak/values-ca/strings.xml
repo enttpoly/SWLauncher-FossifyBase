@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Llançador</string>
+    <string name="launcher_settings">Configuració del llançador</string>
+    <string name="app_info">Informació de l\'aplicació</string>
+    <string name="touch_hold_widget">Premeu llargament el giny i arrossegueu-lo a la pantalla d\'inici</string>
+    <string name="uninstall">Desinstal·la</string>
+    <string name="hide_icon">Oculta la icona</string>
+    <string name="add_hidden_icons">Afegeix icones ocultes</string>
+    <string name="manage_hidden_icons">Gestiona les icones ocultes</string>
+    <string name="hidden_icons">Icones ocultes</string>
+    <string name="hidden_icons_placeholder">Algunes aplicacions no es poden desinstal·lar a causa de les restriccions del sistema, però almenys podeu ocultar les seves icones per a evitar que es vegin.</string>
+    <string name="app_drawer_settings">Calaix d\'aplicacions</string>
+    <string name="close_app_drawer_on_app_open">Tanca el calaix d\'aplicacions en obrir una aplicació</string>
+    <string name="widget_too_big">El giny és massa gros per a la mida de la pantalla d\'inici actual</string>
+    <string name="home_screen_settings">Pantalla inicial</string>
+    <string name="double_tap_to_lock">Toc doble per a bloquejar la pantalla</string>
+    <string name="lock_device_admin_hint">Per a activar la funció de toc doble per a bloquejar la pantalla, heu de concedir permís d\'administració. Tingueu en compte que l\'aplicació no es pot desinstal·lar fins que no s\'elimini aquest permís.</string>
+    <string name="lock_device_admin_warning">Desactivant el permís d\'administració es desactivarà la funció de toc doble per a bloquejar la pantalla.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Mostra automàticament el teclat al calaix</string>
+</resources>

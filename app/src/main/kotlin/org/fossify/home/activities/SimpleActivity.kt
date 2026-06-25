@@ -1,8 +1,8 @@
-package org.fossify.home.activities
+package com.sw.launcher.activities
 
 import org.fossify.commons.activities.BaseSimpleActivity
-import org.fossify.home.R
-import org.fossify.home.helpers.REPOSITORY_NAME
+import com.sw.launcher.R
+import com.sw.launcher.helpers.REPOSITORY_NAME
 
 open class SimpleActivity : BaseSimpleActivity() {
     override fun getAppIconIDs() = arrayListOf(

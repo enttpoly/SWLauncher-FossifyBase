@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Spouštěč</string>
+    <string name="launcher_settings">Nastavení spouštěče</string>
+    <string name="app_info">O aplikaci</string>
+    <string name="touch_hold_widget">Widget dlouze stiskněte a přetáhněte jej na domovskou obrazovku</string>
+    <string name="uninstall">Odinstalovat</string>
+    <string name="hide_icon">Skrýt ikonu</string>
+    <string name="add_hidden_icons">Přidat skryté ikony</string>
+    <string name="manage_hidden_icons">Spravovat skryté ikony</string>
+    <string name="hidden_icons">Skryté ikony</string>
+    <string name="hidden_icons_placeholder">Některé aplikace nelze kvůli systémovým omezením odinstalovat. Ale můžete alespoň skrýt jejich ikony, abyste je neviděli.</string>
+    <string name="home_screen_settings">Domovská obrazovka</string>
+    <string name="widget_too_big">Widget je příliš velký na aktuální velikost domovské obrazovky</string>
+    <string name="app_drawer_settings">Nabídka aplikací</string>
+    <string name="close_app_drawer_on_app_open">Zavřít nabídku aplikací po otevření aplikace</string>
+    <string name="lock_device_admin_hint">Chcete-li povolit funkci zamykání obrazovky dvojitým klepnutím, musíte udělit oprávnění správce. Upozornění: aplikaci nelze odinstalovat, dokud toto oprávnění neodeberete.</string>
+    <string name="lock_device_admin_warning">Deaktivací oprávnění správce zakážete funkci zamykání obrazovky dvojitým klepnutím.</string>
+    <string name="double_tap_to_lock">Klepněte dvakrát pro zamknutí obrazovky</string>
+    <string name="auto_show_keyboard_in_app_drawer">Automaticky zobrazit klávesnici v seznamu aplikací</string>
+</resources>

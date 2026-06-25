@@ -1,8 +1,8 @@
-package org.fossify.home.helpers
+package com.sw.launcher.helpers
 
 import android.content.Context
 import org.fossify.commons.helpers.BaseConfig
-import org.fossify.home.R
+import com.sw.launcher.R
 
 class Config(context: Context) : BaseConfig(context) {
     companion object {

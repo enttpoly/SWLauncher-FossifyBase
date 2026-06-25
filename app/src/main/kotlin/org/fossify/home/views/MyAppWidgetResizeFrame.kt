@@ -1,4 +1,4 @@
-package org.fossify.home.views
+package com.sw.launcher.views
 
 import android.annotation.SuppressLint
 import android.appwidget.AppWidgetManager
@@ -9,11 +9,11 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.RelativeLayout
 import kotlinx.collections.immutable.toImmutableList
-import org.fossify.home.R
-import org.fossify.home.extensions.config
-import org.fossify.home.extensions.getCellCount
-import org.fossify.home.helpers.MAX_CLICK_DURATION
-import org.fossify.home.models.HomeScreenGridItem
+import com.sw.launcher.R
+import com.sw.launcher.extensions.config
+import com.sw.launcher.extensions.getCellCount
+import com.sw.launcher.helpers.MAX_CLICK_DURATION
+import com.sw.launcher.models.HomeScreenGridItem
 
 @SuppressLint("ViewConstructor")
 class MyAppWidgetResizeFrame(context: Context, attrs: AttributeSet, defStyle: Int) : RelativeLayout(context, attrs, defStyle) {

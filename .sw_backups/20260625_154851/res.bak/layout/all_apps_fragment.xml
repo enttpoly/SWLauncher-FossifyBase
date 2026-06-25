@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fossify.home.fragments.AllAppsFragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/all_apps_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <org.fossify.commons.views.MySearchMenu
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:applyWindowInsets="false" />
+
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/all_apps_fastscroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar"
+        app:fastScrollEnabled="true">
+
+        <org.fossify.commons.views.MyRecyclerView
+            android:id="@+id/all_apps_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginEnd="@dimen/smaller_margin"
+            android:clipToPadding="false"
+            app:layoutManager="org.fossify.commons.views.MyGridLayoutManager"
+            app:spanCount="@integer/portrait_column_count" />
+
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+
+    <org.fossify.commons.views.MyTextView
+        android:id="@+id/no_results_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/bigger_margin"
+        android:alpha="0.8"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:text="@string/no_items_found"
+        android:textSize="@dimen/bigger_text_size"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+</org.fossify.home.fragments.AllAppsFragment>

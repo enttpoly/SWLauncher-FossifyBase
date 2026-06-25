@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="launcher_settings">Configurações do Iniciador</string>
+    <string name="app_info">Informações do aplicativo</string>
+    <string name="touch_hold_widget">Toque e segure o widget e arraste-o para sua tela inicial</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="hide_icon">Ocultar ícone</string>
+    <string name="add_hidden_icons">Adicionar ícones ocultos</string>
+    <string name="manage_hidden_icons">Gerenciar ícones ocultos</string>
+    <string name="hidden_icons">Ícones ocultos</string>
+    <string name="hidden_icons_placeholder">Alguns aplicativos não podem ser desinstalados devido a restrições do sistema, mas você pode ao menos ocultar seus ícones para evitar vê-los.</string>
+    <string name="app_drawer_settings">Gaveta de aplicativos</string>
+    <string name="close_app_drawer_on_app_open">Fechar gaveta de aplicativos ao abrir um aplicativo</string>
+    <string name="home_screen_settings">Tela inicial</string>
+    <string name="widget_too_big">O widget é muito grande para o tamanho atual da tela inicial</string>
+    <string name="app_launcher_name">Iniciador</string>
+    <string name="double_tap_to_lock">Toque duas vezes para bloquear a tela</string>
+    <string name="lock_device_admin_hint">Para habilitar o recurso de toque duplo para bloquear a tela, você precisa conceder permissão de administrador. Observe que o aplicativo não pode ser desinstalado até que essa permissão seja removida.</string>
+    <string name="lock_device_admin_warning">Desativar a permissão de administrador desabilitará o recurso de toque duplo para bloquear a tela.</string>
+    <string name="auto_show_keyboard_in_app_drawer">Mostrar teclado ao abrir Gaveta</string>
+</resources>

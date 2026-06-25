@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SW Launcher brand tokens: Aurora Glass / Material 3 foundation -->
+    <color name="sw_launcher_icon_background">#7C4DFF</color>
+    <color name="sw_aurora_primary">#7E57C2</color>
+    <color name="sw_aurora_secondary">#8EA7FF</color>
+    <color name="sw_aurora_tertiary">#F4A7D8</color>
+    <color name="sw_aurora_surface">#F5ECFF</color>
+    <color name="sw_aurora_surface_dark">#15121D</color>
+    <color name="sw_aurora_glass">#CCF3E8FF</color>
+    <color name="sw_aurora_glass_dark">#CC211B2E</color>
+</resources>

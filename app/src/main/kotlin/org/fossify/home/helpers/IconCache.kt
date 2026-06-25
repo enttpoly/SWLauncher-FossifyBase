@@ -1,6 +1,6 @@
-package org.fossify.home.helpers
+package com.sw.launcher.helpers
 
-import org.fossify.home.models.AppLauncher
+import com.sw.launcher.models.AppLauncher
 
 object IconCache {
     @Volatile

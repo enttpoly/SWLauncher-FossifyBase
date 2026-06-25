@@ -1,0 +1,10 @@
+android.enableJetifier=true
+android.useAndroidX=true
+android.nonTransitiveRClass=true
+
+org.gradle.jvmargs=-Xmx4096M
+
+# Versioning
+VERSION_NAME=1.10.0
+VERSION_CODE=16
+APP_ID=org.fossify.home

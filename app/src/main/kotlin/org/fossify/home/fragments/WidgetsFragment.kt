@@ -1,4 +1,4 @@
-package org.fossify.home.fragments
+package com.sw.launcher.fragments
 
 import android.annotation.SuppressLint
 import android.appwidget.AppWidgetManager
@@ -17,21 +17,21 @@ import org.fossify.commons.extensions.normalizeString
 import org.fossify.commons.extensions.showErrorToast
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.helpers.ensureBackgroundThread
-import org.fossify.home.R
-import org.fossify.home.activities.MainActivity
-import org.fossify.home.adapters.WidgetsAdapter
-import org.fossify.home.databinding.WidgetsFragmentBinding
-import org.fossify.home.extensions.config
-import org.fossify.home.extensions.getInitialCellSize
-import org.fossify.home.extensions.setupDrawerBackground
-import org.fossify.home.helpers.ITEM_TYPE_SHORTCUT
-import org.fossify.home.helpers.ITEM_TYPE_WIDGET
-import org.fossify.home.interfaces.WidgetsFragmentListener
-import org.fossify.home.models.AppWidget
-import org.fossify.home.models.HomeScreenGridItem
-import org.fossify.home.models.WidgetsListItem
-import org.fossify.home.models.WidgetsListItemsHolder
-import org.fossify.home.models.WidgetsListSection
+import com.sw.launcher.R
+import com.sw.launcher.activities.MainActivity
+import com.sw.launcher.adapters.WidgetsAdapter
+import com.sw.launcher.databinding.WidgetsFragmentBinding
+import com.sw.launcher.extensions.config
+import com.sw.launcher.extensions.getInitialCellSize
+import com.sw.launcher.extensions.setupDrawerBackground
+import com.sw.launcher.helpers.ITEM_TYPE_SHORTCUT
+import com.sw.launcher.helpers.ITEM_TYPE_WIDGET
+import com.sw.launcher.interfaces.WidgetsFragmentListener
+import com.sw.launcher.models.AppWidget
+import com.sw.launcher.models.HomeScreenGridItem
+import com.sw.launcher.models.WidgetsListItem
+import com.sw.launcher.models.WidgetsListItemsHolder
+import com.sw.launcher.models.WidgetsListSection
 
 class WidgetsFragment(context: Context, attributeSet: AttributeSet) :
     MyFragment<WidgetsFragmentBinding>(context, attributeSet), WidgetsFragmentListener {
