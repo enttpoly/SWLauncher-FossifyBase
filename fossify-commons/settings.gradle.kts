@@ -10,14 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { setUrl("https://www.jitpack.io") }
-        mavenLocal()
+        maven { setUrl("https://jitpack.io") }
     }
 }
-include(":app")
-
-includeBuild("fossify-commons") {
-    dependencySubstitution {
-        substitute(module("org.fossify:commons")).using(project(":commons"))
-    }
-}
+rootProject.name = "Fossify-Commons"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":commons", ":samples")

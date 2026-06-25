@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <package android:name="org.fossify.thankyou.debug" />
+        <package android:name="org.fossify.thankyou" />
+    </queries>
+
+    <uses-feature
+        android:name="android.hardware.faketouch"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.USE_BIOMETRIC"
+        tools:node="remove" />
+
+    <uses-permission
+        android:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        tools:node="remove" />
+
+    <!-- used by Reprint -->
+    <uses-permission
+        android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"
+        tools:node="remove" />
+
+    <uses-permission android:name="org.fossify.android.permission.WRITE_GLOBAL_SETTINGS" />
+
+    <application android:supportsRtl="true">
+        <activity
+            android:name="org.fossify.commons.activities.ContributorsActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/contributors"
+            android:parentActivityName="org.fossify.commons.activities.AboutActivity" />
+
+        <activity
+            android:name="org.fossify.commons.activities.FAQActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/frequently_asked_questions"
+            android:parentActivityName="org.fossify.commons.activities.AboutActivity" />
+
+        <activity
+            android:name="org.fossify.commons.activities.LicenseActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/third_party_licences"
+            android:parentActivityName="org.fossify.commons.activities.AboutActivity" />
+
+        <activity
+            android:name=".activities.ManageBlockedNumbersActivity"
+            android:configChanges="orientation"
+            android:enableOnBackInvokedCallback="true"
+            android:exported="false"
+            android:label="@string/manage_blocked_numbers" />
+
+        <activity
+            android:name=".activities.DonationActivity"
+            android:exported="false"
+            android:label="@string/donate_to_fossify" />
+
+        <activity
+            android:name=".activities.AppLockActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receivers.FossifyBroadcastReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="org.fossify.android.GLOBAL_CONFIG_UPDATED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

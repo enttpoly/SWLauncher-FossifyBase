@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="applyWindowInsets" format="boolean" />
+
+    <declare-styleable name="BottomActionMenuItem">
+        <attr name="android:id" />
+        <attr name="android:title" />
+        <attr name="android:icon" />
+        <attr name="android:visible" />
+        <attr name="showAsAction" />
+    </declare-styleable>
+
+    <declare-styleable name="MyFloatingActionButton">
+        <attr name="applyWindowInsets" />
+    </declare-styleable>
+
+    <declare-styleable name="MyAppBarLayout">
+        <attr name="applyWindowInsets" />
+    </declare-styleable>
+</resources>

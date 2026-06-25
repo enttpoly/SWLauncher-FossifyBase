@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.fossify.commons.views.PatternTab xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pattern_lock_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.fossify.commons.views.MyTextView
+        android:id="@+id/pattern_lock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:drawableTop="@drawable/ic_lock_outlined_vector"
+        android:drawablePadding="@dimen/activity_margin"
+        android:minLines="2"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="@dimen/small_margin"
+        android:text="@string/insert_pattern"
+        android:textAlignment="center"
+        android:textSize="@dimen/bigger_text_size"
+        app:layout_constraintBottom_toTopOf="@id/pattern_lock_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.andrognito.patternlockview.PatternLockView
+        android:id="@+id/pattern_lock_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/activity_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_min="@dimen/app_lock_view_min_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pattern_lock_title"
+        app:layout_constraintWidth_max="@dimen/app_lock_view_max_size" />
+
+</org.fossify.commons.views.PatternTab>
