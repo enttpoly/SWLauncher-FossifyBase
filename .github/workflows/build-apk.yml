@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Baixar projeto
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Preparar Java
         uses: actions/setup-java@v4
