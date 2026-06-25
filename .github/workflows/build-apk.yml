@@ -3,7 +3,8 @@ name: Build SW Launcher Fossify Base APK
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -26,8 +27,24 @@ jobs:
       - name: Gerar APK fossDebug
         run: ./gradlew --no-daemon :app:assembleFossDebug
 
+      - name: Mostrar APKs encontrados
+        run: |
+          echo "APKs encontrados:"
+          find . -type f -name "*.apk" -print
+          echo "Pastas build/outputs:"
+          find . -path "*build/outputs*" -maxdepth 8 -type f | head -200
+
+      - name: Copiar APK para pasta de artifact
+        run: |
+          rm -rf apk-out
+          mkdir -p apk-out
+          find . -type f -name "*.apk" -exec cp {} apk-out/ \;
+          ls -lah apk-out
+          test "$(find apk-out -type f -name '*.apk' | wc -l)" -gt 0
+
       - name: Enviar APK para download
         uses: actions/upload-artifact@v4
         with:
           name: swlauncher-fossify-base-apk
-          path: app/build/outputs/apk/foss/debug/*.apk
+          path: apk-out/*.apk
+          if-no-files-found: error
