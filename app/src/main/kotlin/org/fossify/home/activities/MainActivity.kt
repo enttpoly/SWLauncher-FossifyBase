@@ -923,9 +923,10 @@ private fun openSystemWallpaperPicker(finalBitmap: android.graphics.Bitmap) {
 
 private fun openDeviceWallpaperSettings() {
     val intents = arrayOf(
-        android.content.Intent(android.provider.Settings.ACTION_WALLPAPER_SETTINGS),
+        android.content.Intent("android.settings.WALLPAPER_SETTINGS"),
         android.content.Intent(android.content.Intent.ACTION_SET_WALLPAPER),
-        android.content.Intent(android.app.WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER)
+        android.content.Intent(android.app.WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER),
+        android.content.Intent(android.provider.Settings.ACTION_DISPLAY_SETTINGS)
     )
 
     for (intent in intents) {
@@ -941,6 +942,8 @@ private fun openDeviceWallpaperSettings() {
 
     toast("Não encontrei o alterador de papel de parede do sistema.")
 }
+
+
 
 
 
