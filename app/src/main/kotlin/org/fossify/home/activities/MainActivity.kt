@@ -958,73 +958,110 @@ private fun showSwExpressiveHomeMenu() {
 
     val root = android.widget.LinearLayout(this).apply {
         orientation = android.widget.LinearLayout.VERTICAL
-        setPadding(swDp(18), swDp(10), swDp(18), swDp(18))
-        background = swRoundBg("#EE151821", 34, "#33FFFFFF")
+        setPadding(swDp(12), swDp(10), swDp(12), swDp(10))
+        background = swRoundBg("#E91B1F2A", 22, "#33FFFFFF")
     }
 
-    val handle = android.view.View(this).apply {
-        background = swRoundBg("#6F7A8E", 8)
+    fun compactRow(
+        iconText: String,
+        title: String,
+        onClick: () -> Unit
+    ): android.view.View {
+        val row = android.widget.LinearLayout(this).apply {
+            orientation = android.widget.LinearLayout.HORIZONTAL
+            gravity = android.view.Gravity.CENTER_VERTICAL
+            setPadding(swDp(10), swDp(10), swDp(12), swDp(10))
+            isClickable = true
+            isFocusable = true
+            background = swRoundBg("#001B1F2A", 16)
+        }
+
+        val icon = android.widget.TextView(this).apply {
+            text = iconText
+            textSize = 20f
+            gravity = android.view.Gravity.CENTER
+            setTextColor(android.graphics.Color.parseColor("#DCE7FF"))
+            typeface = android.graphics.Typeface.DEFAULT_BOLD
+        }
+
+        row.addView(
+            icon,
+            android.widget.LinearLayout.LayoutParams(swDp(34), swDp(34))
+        )
+
+        val label = android.widget.TextView(this).apply {
+            text = title
+            textSize = 16f
+            setTextColor(android.graphics.Color.parseColor("#F7F8FF"))
+            typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.NORMAL)
+            setPadding(swDp(12), 0, 0, 0)
+            includeFontPadding = true
+        }
+
+        row.addView(
+            label,
+            android.widget.LinearLayout.LayoutParams(
+                0,
+                android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+            )
+        )
+
+        row.setOnClickListener {
+            it.animate()
+                .scaleX(0.96f)
+                .scaleY(0.96f)
+                .setDuration(60)
+                .withEndAction {
+                    it.animate().scaleX(1f).scaleY(1f).setDuration(100).start()
+                    dialog.dismiss()
+                    onClick()
+                }
+                .start()
+        }
+
+        return row
     }
 
-    val handleParams = android.widget.LinearLayout.LayoutParams(swDp(42), swDp(4)).apply {
-        gravity = android.view.Gravity.CENTER_HORIZONTAL
-        bottomMargin = swDp(16)
+    fun divider(): android.view.View {
+        return android.view.View(this).apply {
+            setBackgroundColor(android.graphics.Color.parseColor("#22FFFFFF"))
+        }
     }
 
-    root.addView(handle, handleParams)
-
-    root.addView(swText("SW Launcher", 22f, "#FFFFFF", android.graphics.Typeface.BOLD))
-    root.addView(swText("Ações rápidas da tela inicial", 13f, "#B9C1D3").apply {
-        setPadding(0, swDp(2), 0, swDp(16))
-    })
-
-    fun addSpace() {
-        root.addView(android.view.View(this), android.widget.LinearLayout.LayoutParams(1, swDp(10)))
-    }
-
-    root.addView(createSwExpressiveRow(
-        "Widgets",
-        "Adicionar e organizar widgets na tela inicial",
-        "W"
-    ) {
-        dialog.dismiss()
+    root.addView(compactRow("▦", "Widgets") {
         showFragment(binding.widgetsFragment)
     })
 
-    addSpace()
+    root.addView(
+        divider(),
+        android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+            1
+        ).apply {
+            leftMargin = swDp(48)
+            rightMargin = swDp(6)
+        }
+    )
 
-    root.addView(createSwExpressiveRow(
-        "Papéis de parede",
-        "Abrir opções modernas de wallpaper",
-        "P"
-    ) {
-        dialog.dismiss()
+    root.addView(compactRow("▧", "Papéis de parede") {
         launchWallpapersIntent()
     })
 
-    addSpace()
+    root.addView(
+        divider(),
+        android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+            1
+        ).apply {
+            leftMargin = swDp(48)
+            rightMargin = swDp(6)
+        }
+    )
 
-    root.addView(createSwExpressiveRow(
-        "Configurações",
-        "Personalizar a SW Launcher",
-        "S"
-    ) {
-        dialog.dismiss()
+    root.addView(compactRow("⚙", "Configurações da SW Launcher") {
         launchSettings()
     })
-
-    if (!isDefaultLauncher()) {
-        addSpace()
-
-        root.addView(createSwExpressiveRow(
-            "Definir como padrão",
-            "Usar a SW Launcher como launcher principal",
-            "✓"
-        ) {
-            dialog.dismiss()
-            launchSetDefaultIntent()
-        })
-    }
 
     dialog.setContentView(root)
     dialog.setCanceledOnTouchOutside(true)
@@ -1032,25 +1069,32 @@ private fun showSwExpressiveHomeMenu() {
     dialog.setOnShowListener {
         dialog.window?.let { window ->
             window.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT))
+
             val attrs = window.attributes
-            attrs.width = (resources.displayMetrics.widthPixels - swDp(28)).coerceAtMost(swDp(460))
+            attrs.width = (resources.displayMetrics.widthPixels - swDp(76)).coerceAtMost(swDp(310))
             attrs.height = android.view.WindowManager.LayoutParams.WRAP_CONTENT
-            attrs.gravity = android.view.Gravity.BOTTOM or android.view.Gravity.CENTER_HORIZONTAL
-            attrs.y = swDp(14)
+            attrs.gravity = android.view.Gravity.CENTER
             window.attributes = attrs
         }
 
         root.alpha = 0f
-        root.translationY = swDp(24).toFloat()
+        root.scaleX = 0.92f
+        root.scaleY = 0.92f
+        root.translationY = swDp(8).toFloat()
+
         root.animate()
             .alpha(1f)
+            .scaleX(1f)
+            .scaleY(1f)
             .translationY(0f)
-            .setDuration(220)
+            .setDuration(170)
             .start()
     }
 
     dialog.show()
 }
+
+
 
 
 
