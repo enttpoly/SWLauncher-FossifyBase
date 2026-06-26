@@ -982,16 +982,12 @@ private fun showSwExpressiveHomeMenu() {
         root.addView(android.view.View(this), android.widget.LinearLayout.LayoutParams(1, swDp(10)))
     }
 
-    lateinit var homeDialog: android.app.Dialog
-
-    homeDialog = dialog
-
     root.addView(createSwExpressiveRow(
         "Widgets",
         "Adicionar e organizar widgets na tela inicial",
         "W"
     ) {
-        homeDialog.dismiss()
+        dialog.dismiss()
         showFragment(binding.widgetsFragment)
     })
 
@@ -1002,7 +998,7 @@ private fun showSwExpressiveHomeMenu() {
         "Abrir opções modernas de wallpaper",
         "P"
     ) {
-        homeDialog.dismiss()
+        dialog.dismiss()
         launchWallpapersIntent()
     })
 
@@ -1013,7 +1009,7 @@ private fun showSwExpressiveHomeMenu() {
         "Personalizar a SW Launcher",
         "S"
     ) {
-        homeDialog.dismiss()
+        dialog.dismiss()
         launchSettings()
     })
 
@@ -1025,7 +1021,7 @@ private fun showSwExpressiveHomeMenu() {
             "Usar a SW Launcher como launcher principal",
             "✓"
         ) {
-            homeDialog.dismiss()
+            dialog.dismiss()
             launchSetDefaultIntent()
         })
     }
@@ -1128,6 +1124,28 @@ private fun openDeviceWallpaperSettings() {
 
 
 
+
+private fun launchSetDefaultIntent() {
+    val intents = arrayOf(
+        android.content.Intent(android.provider.Settings.ACTION_HOME_SETTINGS),
+        android.content.Intent(android.provider.Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS),
+        android.content.Intent(android.provider.Settings.ACTION_SETTINGS)
+    )
+
+    for (intent in intents) {
+        try {
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+                toast("Defina a SW Launcher como launcher padrão pelo sistema.")
+                return
+            }
+        } catch (_: Exception) {
+        }
+    }
+
+    toast("Não foi possível abrir as configurações de launcher padrão.")
+}
+
 private fun launchWallpapersIntent() {
     showSwWallpaperExpressiveSheet()
 }
@@ -1163,15 +1181,12 @@ private fun showSwWallpaperExpressiveSheet() {
         root.addView(android.view.View(this), android.widget.LinearLayout.LayoutParams(1, swDp(10)))
     }
 
-    lateinit var wallpaperDialog: android.app.Dialog
-    wallpaperDialog = dialog
-
     root.addView(createSwExpressiveRow(
         "Alterar pelo sistema",
         "Abre a tela oficial de wallpaper do Android",
         "A"
     ) {
-        wallpaperDialog.dismiss()
+        dialog.dismiss()
         openDeviceWallpaperSettings()
     })
 
@@ -1182,7 +1197,7 @@ private fun showSwWallpaperExpressiveSheet() {
         "Fotos, Nova, galeria ou apps compatíveis",
         "O"
     ) {
-        wallpaperDialog.dismiss()
+        dialog.dismiss()
         openWallpaperSourceChooser()
     })
 
@@ -1193,7 +1208,7 @@ private fun showSwWallpaperExpressiveSheet() {
         "Abrir seletor de planos de fundo interativos",
         "L"
     ) {
-        wallpaperDialog.dismiss()
+        dialog.dismiss()
         openLiveWallpaperChooser()
     })
 
