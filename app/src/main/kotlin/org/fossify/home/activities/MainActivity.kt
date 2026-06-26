@@ -907,6 +907,30 @@ class MainActivity : SimpleActivity(), FlingListener {
         }
     }
 
+
+    private fun applySwWallpaperBitmap(finalBitmap: android.graphics.Bitmap) {
+        try {
+            val wallpaperManager = WallpaperManager.getInstance(this)
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !wallpaperManager.isWallpaperSupported) {
+                toast("Este dispositivo não permite alterar o papel de parede por este app.")
+                return
+            }
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N && !wallpaperManager.isSetWallpaperAllowed) {
+                toast("O sistema bloqueou a alteração do papel de parede para este app.")
+                return
+            }
+
+            wallpaperManager.setBitmap(finalBitmap, null, true, WallpaperManager.FLAG_SYSTEM)
+            toast("O wallpaper foi aplicado.")
+        } catch (e: SecurityException) {
+            showErrorToast(e)
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
+    }
+
     private fun launchWallpapersIntent() {
         val options = arrayOf(
             "Aplicar imagem ajustada pela SW Launcher",
@@ -1000,9 +1024,9 @@ class MainActivity : SimpleActivity(), FlingListener {
                 manager.suggestDesiredDimensions(targetWidth, targetHeight)
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    manager.setBitmap(finalBitmap, null, true, WallpaperManager.FLAG_SYSTEM)
+                    applySwWallpaperBitmap(finalBitmap)
                 } else {
-                    manager.setBitmap(finalBitmap)
+                    applySwWallpaperBitmap(finalBitmap)
                 }
 
                 sourceBitmap.recycle()
