@@ -912,29 +912,102 @@ class MainActivity : SimpleActivity(), FlingListener {
 
 
     private fun applySwWallpaperBitmap(finalBitmap: android.graphics.Bitmap) {
+    val wallpaperManager = android.app.WallpaperManager.getInstance(this)
+
+    try {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M &&
+            !wallpaperManager.isWallpaperSupported
+        ) {
+            toast("Este dispositivo não permite alterar o papel de parede por este app.")
+            return
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N &&
+            !wallpaperManager.isSetWallpaperAllowed
+        ) {
+            toast("O sistema bloqueou a alteração direta do papel de parede.")
+            openSystemWallpaperPicker(finalBitmap)
+            return
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            wallpaperManager.setBitmap(
+                finalBitmap,
+                null,
+                true,
+                android.app.WallpaperManager.FLAG_SYSTEM
+            )
+        } else {
+            wallpaperManager.setBitmap(finalBitmap)
+        }
+
+        toast("Wallpaper aplicado com sucesso.")
+    } catch (e: SecurityException) {
+        toast("O Android bloqueou a aplicação direta. Abrindo opção do sistema.")
+        openSystemWallpaperPicker(finalBitmap)
+    } catch (e: Exception) {
+        showErrorToast(e)
+    }
+}
+
+private fun openSystemWallpaperPicker(finalBitmap: android.graphics.Bitmap) {
+    try {
+        val resolver = contentResolver
+
+        val values = android.content.ContentValues().apply {
+            put(android.provider.MediaStore.Images.Media.DISPLAY_NAME, "sw_launcher_wallpaper.png")
+            put(android.provider.MediaStore.Images.Media.MIME_TYPE, "image/png")
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                put(android.provider.MediaStore.Images.Media.RELATIVE_PATH, "Pictures/SW Launcher")
+                put(android.provider.MediaStore.Images.Media.IS_PENDING, 1)
+            }
+        }
+
+        val collection =
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                android.provider.MediaStore.Images.Media.getContentUri(
+                    android.provider.MediaStore.VOLUME_EXTERNAL_PRIMARY
+                )
+            } else {
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            }
+
+        val uri = resolver.insert(collection, values)
+
+        if (uri == null) {
+            toast("Não foi possível salvar a imagem do wallpaper.")
+            return
+        }
+
+        resolver.openOutputStream(uri)?.use { output ->
+            finalBitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            val doneValues = android.content.ContentValues().apply {
+                put(android.provider.MediaStore.Images.Media.IS_PENDING, 0)
+            }
+            resolver.update(uri, doneValues, null, null)
+        }
+
+        val intent = android.content.Intent(android.content.Intent.ACTION_ATTACH_DATA).apply {
+            setDataAndType(uri, "image/png")
+            putExtra("mimeType", "image/png")
+            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+
+        startActivity(android.content.Intent.createChooser(intent, "Definir como papel de parede"))
+    } catch (e: Exception) {
         try {
-            val wallpaperManager = WallpaperManager.getInstance(this)
-
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && !wallpaperManager.isWallpaperSupported) {
-                toast("Este dispositivo não permite alterar o papel de parede por este app.")
-                return
-            }
-
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N && !wallpaperManager.isSetWallpaperAllowed) {
-                toast("O sistema bloqueou a alteração do papel de parede para este app.")
-                return
-            }
-
-            applySwWallpaperBitmap(finalBitmap)
-            toast("O wallpaper foi aplicado.")
-        } catch (e: SecurityException) {
-            showErrorToast(e)
-        } catch (e: Exception) {
+            val intent = android.content.Intent(android.app.WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER)
+            startActivity(intent)
+        } catch (_: Exception) {
             showErrorToast(e)
         }
     }
+}
 
-    private fun launchWallpapersIntent() {
+private fun launchWallpapersIntent() {
         val options = arrayOf(
             "Aplicar imagem ajustada pela SW Launcher",
             "Abrir wallpapers do sistema / animados"
