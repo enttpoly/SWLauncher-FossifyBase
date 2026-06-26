@@ -912,97 +912,92 @@ class MainActivity : SimpleActivity(), FlingListener {
 
 
     private fun applySwWallpaperBitmap(finalBitmap: android.graphics.Bitmap) {
-    val wallpaperManager = android.app.WallpaperManager.getInstance(this)
-
-    try {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M &&
-            !wallpaperManager.isWallpaperSupported
-        ) {
-            toast("Este dispositivo não permite alterar o papel de parede por este app.")
-            return
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N &&
-            !wallpaperManager.isSetWallpaperAllowed
-        ) {
-            toast("O sistema bloqueou a alteração direta do papel de parede.")
-            openSystemWallpaperPicker(finalBitmap)
-            return
-        }
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            wallpaperManager.setBitmap(
-                finalBitmap,
-                null,
-                true,
-                android.app.WallpaperManager.FLAG_SYSTEM
-            )
-        } else {
-            wallpaperManager.setBitmap(finalBitmap)
-        }
-
-        toast("Wallpaper aplicado com sucesso.")
-    } catch (e: SecurityException) {
-        toast("O Android bloqueou a aplicação direta. Abrindo opção do sistema.")
-        openSystemWallpaperPicker(finalBitmap)
-    } catch (e: Exception) {
-        showErrorToast(e)
-    }
+    openSystemWallpaperPicker(finalBitmap)
 }
 
 private fun openSystemWallpaperPicker(finalBitmap: android.graphics.Bitmap) {
     try {
-        val resolver = contentResolver
-
-        val values = android.content.ContentValues().apply {
-            put(android.provider.MediaStore.Images.Media.DISPLAY_NAME, "sw_launcher_wallpaper.png")
-            put(android.provider.MediaStore.Images.Media.MIME_TYPE, "image/png")
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-                put(android.provider.MediaStore.Images.Media.RELATIVE_PATH, "Pictures/SW Launcher")
-                put(android.provider.MediaStore.Images.Media.IS_PENDING, 1)
-            }
+        val dir = java.io.File(cacheDir, "sw_wallpapers")
+        if (!dir.exists()) {
+            dir.mkdirs()
         }
 
-        val collection =
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-                android.provider.MediaStore.Images.Media.getContentUri(
-                    android.provider.MediaStore.VOLUME_EXTERNAL_PRIMARY
-                )
-            } else {
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            }
+        val file = java.io.File(dir, "sw_launcher_wallpaper.png")
 
-        val uri = resolver.insert(collection, values)
-
-        if (uri == null) {
-            toast("Não foi possível salvar a imagem do wallpaper.")
-            return
-        }
-
-        resolver.openOutputStream(uri)?.use { output ->
+        java.io.FileOutputStream(file).use { output ->
             finalBitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
         }
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
-            val doneValues = android.content.ContentValues().apply {
-                put(android.provider.MediaStore.Images.Media.IS_PENDING, 0)
+        val uri = androidx.core.content.FileProvider.getUriForFile(
+            this,
+            "$packageName.swfileprovider",
+            file
+        )
+
+        val intent = android.app.WallpaperManager
+            .getInstance(this)
+            .getCropAndSetWallpaperIntent(uri)
+            .apply {
+                addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
             }
-            resolver.update(uri, doneValues, null, null)
+
+        val activities = packageManager.queryIntentActivities(
+            intent,
+            android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
+        )
+
+        activities.forEach { resolveInfo ->
+            grantUriPermission(
+                resolveInfo.activityInfo.packageName,
+                uri,
+                android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
         }
 
-        val intent = android.content.Intent(android.content.Intent.ACTION_ATTACH_DATA).apply {
-            setDataAndType(uri, "image/png")
-            putExtra("mimeType", "image/png")
-            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        }
-
-        startActivity(android.content.Intent.createChooser(intent, "Definir como papel de parede"))
+        startActivity(intent)
+        toast("Escolha onde aplicar o wallpaper.")
     } catch (e: Exception) {
         try {
-            val intent = android.content.Intent(android.app.WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER)
-            startActivity(intent)
-        } catch (_: Exception) {
-            showErrorToast(e)
+            val dir = java.io.File(cacheDir, "sw_wallpapers")
+            if (!dir.exists()) {
+                dir.mkdirs()
+            }
+
+            val file = java.io.File(dir, "sw_launcher_wallpaper.png")
+
+            java.io.FileOutputStream(file).use { output ->
+                finalBitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
+            }
+
+            val uri = androidx.core.content.FileProvider.getUriForFile(
+                this,
+                "$packageName.swfileprovider",
+                file
+            )
+
+            val fallbackIntent = android.content.Intent(android.content.Intent.ACTION_ATTACH_DATA).apply {
+                setDataAndType(uri, "image/png")
+                putExtra("mimeType", "image/png")
+                addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+
+            val activities = packageManager.queryIntentActivities(
+                fallbackIntent,
+                android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
+            )
+
+            activities.forEach { resolveInfo ->
+                grantUriPermission(
+                    resolveInfo.activityInfo.packageName,
+                    uri,
+                    android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+            }
+
+            startActivity(android.content.Intent.createChooser(fallbackIntent, "Definir como papel de parede"))
+            toast("Escolha o app do sistema para definir o wallpaper.")
+        } catch (fallbackError: Exception) {
+            showErrorToast(fallbackError)
         }
     }
 }

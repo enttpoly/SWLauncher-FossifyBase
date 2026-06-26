@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <cache-path
-        name="sw_wallpaper_cache"
-        path="." />
+        name="sw_wallpapers"
+        path="sw_wallpapers/" />
 </paths>
