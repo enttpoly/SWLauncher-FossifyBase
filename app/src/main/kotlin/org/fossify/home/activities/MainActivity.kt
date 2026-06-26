@@ -107,6 +107,9 @@ import com.sw.launcher.receivers.LockDeviceAdminReceiver
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
+import androidx.core.content.FileProvider
+import java.io.File
+import java.io.FileOutputStream
 
 class MainActivity : SimpleActivity(), FlingListener {
     private var mTouchDownX = -1
@@ -922,7 +925,7 @@ class MainActivity : SimpleActivity(), FlingListener {
                 return
             }
 
-            wallpaperManager.setBitmap(finalBitmap, null, true, WallpaperManager.FLAG_SYSTEM)
+            applySwWallpaperBitmap(finalBitmap)
             toast("O wallpaper foi aplicado.")
         } catch (e: SecurityException) {
             showErrorToast(e)

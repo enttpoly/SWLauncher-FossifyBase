@@ -444,5 +444,16 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+    
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.swfileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/sw_file_paths" />
+        </provider>
+
     </application>
 </manifest>
