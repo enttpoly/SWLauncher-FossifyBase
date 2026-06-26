@@ -912,112 +912,43 @@ class MainActivity : SimpleActivity(), FlingListener {
 
 
     private fun applySwWallpaperBitmap(finalBitmap: android.graphics.Bitmap) {
-    openSystemWallpaperPicker(finalBitmap)
+    openDeviceWallpaperSettings()
 }
+
+
 
 private fun openSystemWallpaperPicker(finalBitmap: android.graphics.Bitmap) {
-    try {
-        val dir = java.io.File(cacheDir, "sw_wallpapers")
-        if (!dir.exists()) {
-            dir.mkdirs()
-        }
-
-        val file = java.io.File(dir, "sw_launcher_wallpaper.png")
-
-        java.io.FileOutputStream(file).use { output ->
-            finalBitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
-        }
-
-        val uri = androidx.core.content.FileProvider.getUriForFile(
-            this,
-            "$packageName.swfileprovider",
-            file
-        )
-
-        val intent = android.app.WallpaperManager
-            .getInstance(this)
-            .getCropAndSetWallpaperIntent(uri)
-            .apply {
-                addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            }
-
-        val activities = packageManager.queryIntentActivities(
-            intent,
-            android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
-        )
-
-        activities.forEach { resolveInfo ->
-            grantUriPermission(
-                resolveInfo.activityInfo.packageName,
-                uri,
-                android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
-        }
-
-        startActivity(intent)
-        toast("Escolha onde aplicar o wallpaper.")
-    } catch (e: Exception) {
-        try {
-            val dir = java.io.File(cacheDir, "sw_wallpapers")
-            if (!dir.exists()) {
-                dir.mkdirs()
-            }
-
-            val file = java.io.File(dir, "sw_launcher_wallpaper.png")
-
-            java.io.FileOutputStream(file).use { output ->
-                finalBitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
-            }
-
-            val uri = androidx.core.content.FileProvider.getUriForFile(
-                this,
-                "$packageName.swfileprovider",
-                file
-            )
-
-            val fallbackIntent = android.content.Intent(android.content.Intent.ACTION_ATTACH_DATA).apply {
-                setDataAndType(uri, "image/png")
-                putExtra("mimeType", "image/png")
-                addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            }
-
-            val activities = packageManager.queryIntentActivities(
-                fallbackIntent,
-                android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
-            )
-
-            activities.forEach { resolveInfo ->
-                grantUriPermission(
-                    resolveInfo.activityInfo.packageName,
-                    uri,
-                    android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-            }
-
-            startActivity(android.content.Intent.createChooser(fallbackIntent, "Definir como papel de parede"))
-            toast("Escolha o app do sistema para definir o wallpaper.")
-        } catch (fallbackError: Exception) {
-            showErrorToast(fallbackError)
-        }
-    }
+    openDeviceWallpaperSettings()
 }
 
-private fun launchWallpapersIntent() {
-        val options = arrayOf(
-            "Aplicar imagem ajustada pela SW Launcher",
-            "Abrir wallpapers do sistema / animados"
-        )
+private fun openDeviceWallpaperSettings() {
+    val intents = arrayOf(
+        android.content.Intent(android.provider.Settings.ACTION_WALLPAPER_SETTINGS),
+        android.content.Intent(android.content.Intent.ACTION_SET_WALLPAPER),
+        android.content.Intent(android.app.WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER)
+    )
 
-        AlertDialog.Builder(this)
-            .setTitle("Papéis de parede")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> launchSWWallpaperPicker()
-                    1 -> launchSystemWallpapersIntent()
-                }
+    for (intent in intents) {
+        try {
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+                toast("Altere o papel de parede pelo sistema.")
+                return
             }
-            .show()
+        } catch (_: Exception) {
+        }
     }
+
+    toast("Não encontrei o alterador de papel de parede do sistema.")
+}
+
+
+
+private fun launchWallpapersIntent() {
+    openDeviceWallpaperSettings()
+}
+
+
 
     private fun launchSWWallpaperPicker() {
         try {
