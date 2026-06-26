@@ -852,30 +852,211 @@ class MainActivity : SimpleActivity(), FlingListener {
     }
 
     private fun showMainLongPressMenu(x: Float, y: Float) {
-        binding.homeScreenGrid.root.hideResizeLines()
-        binding.homeScreenPopupMenuAnchor.x = x
-        binding.homeScreenPopupMenuAnchor.y =
-            y - resources.getDimension(R.dimen.long_press_anchor_button_offset_y) * 2
-        val contextTheme = ContextThemeWrapper(this, getPopupMenuTheme())
-        PopupMenu(
-            contextTheme,
-            binding.homeScreenPopupMenuAnchor,
-            Gravity.TOP or Gravity.END
-        ).apply {
-            inflate(R.menu.menu_home_screen)
-            menu.findItem(R.id.set_as_default).isVisible = !isDefaultLauncher()
-            setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.widgets -> showWidgetsFragment()
-                    R.id.wallpapers -> launchWallpapersIntent()
-                    R.id.launcher_settings -> launchSettings()
-                    R.id.set_as_default -> launchSetAsDefaultIntent()
-                }
-                true
-            }
-            show()
+    binding.homeScreenGrid.root.hideResizeLines()
+    showSwExpressiveHomeMenu()
+}
+
+private fun swDp(value: Int): Int {
+    return (value * resources.displayMetrics.density).toInt()
+}
+
+private fun swRoundBg(
+    color: String,
+    radiusDp: Int,
+    strokeColor: String? = null,
+    strokeDp: Int = 1
+): android.graphics.drawable.GradientDrawable {
+    return android.graphics.drawable.GradientDrawable().apply {
+        shape = android.graphics.drawable.GradientDrawable.RECTANGLE
+        cornerRadius = swDp(radiusDp).toFloat()
+        setColor(android.graphics.Color.parseColor(color))
+        if (strokeColor != null) {
+            setStroke(swDp(strokeDp), android.graphics.Color.parseColor(strokeColor))
         }
     }
+}
+
+private fun swText(
+    text: String,
+    sizeSp: Float,
+    color: String,
+    style: Int = android.graphics.Typeface.NORMAL
+): android.widget.TextView {
+    return android.widget.TextView(this).apply {
+        this.text = text
+        textSize = sizeSp
+        setTextColor(android.graphics.Color.parseColor(color))
+        typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, style)
+        includeFontPadding = true
+    }
+}
+
+private fun createSwExpressiveRow(
+    title: String,
+    subtitle: String,
+    badge: String,
+    onClick: () -> Unit
+): android.view.View {
+    val row = android.widget.LinearLayout(this).apply {
+        orientation = android.widget.LinearLayout.HORIZONTAL
+        gravity = android.view.Gravity.CENTER_VERTICAL
+        setPadding(swDp(14), swDp(12), swDp(14), swDp(12))
+        background = swRoundBg("#252A36", 24, "#22FFFFFF")
+        isClickable = true
+        isFocusable = true
+    }
+
+    val icon = android.widget.TextView(this).apply {
+        text = badge
+        textSize = 18f
+        gravity = android.view.Gravity.CENTER
+        setTextColor(android.graphics.Color.parseColor("#EAF1FF"))
+        typeface = android.graphics.Typeface.DEFAULT_BOLD
+        background = swRoundBg("#3467FF", 18)
+    }
+
+    row.addView(
+        icon,
+        android.widget.LinearLayout.LayoutParams(swDp(42), swDp(42))
+    )
+
+    val textColumn = android.widget.LinearLayout(this).apply {
+        orientation = android.widget.LinearLayout.VERTICAL
+        setPadding(swDp(14), 0, 0, 0)
+    }
+
+    textColumn.addView(swText(title, 15.5f, "#F6F7FB", android.graphics.Typeface.BOLD))
+    textColumn.addView(swText(subtitle, 12.5f, "#AEB6C8"))
+
+    row.addView(
+        textColumn,
+        android.widget.LinearLayout.LayoutParams(
+            0,
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+            1f
+        )
+    )
+
+    row.setOnClickListener {
+        it.animate()
+            .scaleX(0.98f)
+            .scaleY(0.98f)
+            .setDuration(80)
+            .withEndAction {
+                it.animate().scaleX(1f).scaleY(1f).setDuration(120).start()
+                onClick()
+            }
+            .start()
+    }
+
+    return row
+}
+
+private fun showSwExpressiveHomeMenu() {
+    val dialog = android.app.Dialog(this)
+    dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
+
+    val root = android.widget.LinearLayout(this).apply {
+        orientation = android.widget.LinearLayout.VERTICAL
+        setPadding(swDp(18), swDp(10), swDp(18), swDp(18))
+        background = swRoundBg("#EE151821", 34, "#33FFFFFF")
+    }
+
+    val handle = android.view.View(this).apply {
+        background = swRoundBg("#6F7A8E", 8)
+    }
+
+    val handleParams = android.widget.LinearLayout.LayoutParams(swDp(42), swDp(4)).apply {
+        gravity = android.view.Gravity.CENTER_HORIZONTAL
+        bottomMargin = swDp(16)
+    }
+
+    root.addView(handle, handleParams)
+
+    root.addView(swText("SW Launcher", 22f, "#FFFFFF", android.graphics.Typeface.BOLD))
+    root.addView(swText("Ações rápidas da tela inicial", 13f, "#B9C1D3").apply {
+        setPadding(0, swDp(2), 0, swDp(16))
+    })
+
+    fun addSpace() {
+        root.addView(android.view.View(this), android.widget.LinearLayout.LayoutParams(1, swDp(10)))
+    }
+
+    lateinit var homeDialog: android.app.Dialog
+
+    homeDialog = dialog
+
+    root.addView(createSwExpressiveRow(
+        "Widgets",
+        "Adicionar e organizar widgets na tela inicial",
+        "W"
+    ) {
+        homeDialog.dismiss()
+        showFragment(binding.widgetsFragment)
+    })
+
+    addSpace()
+
+    root.addView(createSwExpressiveRow(
+        "Papéis de parede",
+        "Abrir opções modernas de wallpaper",
+        "P"
+    ) {
+        homeDialog.dismiss()
+        launchWallpapersIntent()
+    })
+
+    addSpace()
+
+    root.addView(createSwExpressiveRow(
+        "Configurações",
+        "Personalizar a SW Launcher",
+        "S"
+    ) {
+        homeDialog.dismiss()
+        launchSettings()
+    })
+
+    if (!isDefaultLauncher()) {
+        addSpace()
+
+        root.addView(createSwExpressiveRow(
+            "Definir como padrão",
+            "Usar a SW Launcher como launcher principal",
+            "✓"
+        ) {
+            homeDialog.dismiss()
+            launchSetDefaultIntent()
+        })
+    }
+
+    dialog.setContentView(root)
+    dialog.setCanceledOnTouchOutside(true)
+
+    dialog.setOnShowListener {
+        dialog.window?.let { window ->
+            window.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT))
+            val attrs = window.attributes
+            attrs.width = (resources.displayMetrics.widthPixels - swDp(28)).coerceAtMost(swDp(460))
+            attrs.height = android.view.WindowManager.LayoutParams.WRAP_CONTENT
+            attrs.gravity = android.view.Gravity.BOTTOM or android.view.Gravity.CENTER_HORIZONTAL
+            attrs.y = swDp(14)
+            window.attributes = attrs
+        }
+
+        root.alpha = 0f
+        root.translationY = swDp(24).toFloat()
+        root.animate()
+            .alpha(1f)
+            .translationY(0f)
+            .setDuration(220)
+            .start()
+    }
+
+    dialog.show()
+}
+
+
 
     private fun resetFragmentTouches() {
         binding.widgetsFragment.root.apply {
@@ -948,8 +1129,135 @@ private fun openDeviceWallpaperSettings() {
 
 
 private fun launchWallpapersIntent() {
+    showSwWallpaperExpressiveSheet()
+}
+
+private fun showSwWallpaperExpressiveSheet() {
+    val dialog = android.app.Dialog(this)
+    dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
+
+    val root = android.widget.LinearLayout(this).apply {
+        orientation = android.widget.LinearLayout.VERTICAL
+        setPadding(swDp(18), swDp(10), swDp(18), swDp(18))
+        background = swRoundBg("#EE151821", 34, "#33FFFFFF")
+    }
+
+    val handle = android.view.View(this).apply {
+        background = swRoundBg("#6F7A8E", 8)
+    }
+
+    root.addView(
+        handle,
+        android.widget.LinearLayout.LayoutParams(swDp(42), swDp(4)).apply {
+            gravity = android.view.Gravity.CENTER_HORIZONTAL
+            bottomMargin = swDp(16)
+        }
+    )
+
+    root.addView(swText("Papéis de parede", 22f, "#FFFFFF", android.graphics.Typeface.BOLD))
+    root.addView(swText("Escolha pelo sistema do seu dispositivo", 13f, "#B9C1D3").apply {
+        setPadding(0, swDp(2), 0, swDp(16))
+    })
+
+    fun addSpace() {
+        root.addView(android.view.View(this), android.widget.LinearLayout.LayoutParams(1, swDp(10)))
+    }
+
+    lateinit var wallpaperDialog: android.app.Dialog
+    wallpaperDialog = dialog
+
+    root.addView(createSwExpressiveRow(
+        "Alterar pelo sistema",
+        "Abre a tela oficial de wallpaper do Android",
+        "A"
+    ) {
+        wallpaperDialog.dismiss()
+        openDeviceWallpaperSettings()
+    })
+
+    addSpace()
+
+    root.addView(createSwExpressiveRow(
+        "Escolher origem",
+        "Fotos, Nova, galeria ou apps compatíveis",
+        "O"
+    ) {
+        wallpaperDialog.dismiss()
+        openWallpaperSourceChooser()
+    })
+
+    addSpace()
+
+    root.addView(createSwExpressiveRow(
+        "Wallpapers animados",
+        "Abrir seletor de planos de fundo interativos",
+        "L"
+    ) {
+        wallpaperDialog.dismiss()
+        openLiveWallpaperChooser()
+    })
+
+    dialog.setContentView(root)
+    dialog.setCanceledOnTouchOutside(true)
+
+    dialog.setOnShowListener {
+        dialog.window?.let { window ->
+            window.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT))
+            val attrs = window.attributes
+            attrs.width = (resources.displayMetrics.widthPixels - swDp(28)).coerceAtMost(swDp(460))
+            attrs.height = android.view.WindowManager.LayoutParams.WRAP_CONTENT
+            attrs.gravity = android.view.Gravity.BOTTOM or android.view.Gravity.CENTER_HORIZONTAL
+            attrs.y = swDp(14)
+            window.attributes = attrs
+        }
+
+        root.alpha = 0f
+        root.translationY = swDp(24).toFloat()
+        root.animate()
+            .alpha(1f)
+            .translationY(0f)
+            .setDuration(220)
+            .start()
+    }
+
+    dialog.show()
+}
+
+private fun openWallpaperSourceChooser() {
+    val intents = arrayOf(
+        android.content.Intent(android.content.Intent.ACTION_SET_WALLPAPER),
+        android.content.Intent("android.intent.action.SET_WALLPAPER")
+    )
+
+    for (intent in intents) {
+        try {
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(android.content.Intent.createChooser(intent, "Escolher wallpaper"))
+                toast("Escolha a origem do wallpaper.")
+                return
+            }
+        } catch (_: Exception) {
+        }
+    }
+
     openDeviceWallpaperSettings()
 }
+
+private fun openLiveWallpaperChooser() {
+    try {
+        val intent = android.content.Intent(android.app.WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER)
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+            toast("Escolha um wallpaper animado.")
+            return
+        }
+    } catch (_: Exception) {
+    }
+
+    toast("Wallpapers animados não disponíveis neste dispositivo.")
+}
+
+
 
 
 
